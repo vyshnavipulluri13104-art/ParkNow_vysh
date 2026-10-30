@@ -5,6 +5,7 @@
 - [Overview](#overview)
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
+- [Project Highlights](#project-highlights)
 - [Demo](#demo)
 - [Appwrite Setup](#appwrite-setup)
 - [Local Setup](#local-setup)
@@ -36,7 +37,28 @@ Designed for both users and administrators, ParkNow helps streamline parking dec
 - **Frontend:** React Native with Expo
 - **Backend:** Appwrite Cloud Database
 - **Machine Learning Server:** Flask (Python)
+- **Machine Learning Algorithm:** Linear Regression
 - **Styling:** Tailwind CSS (NativeWind)
+
+## Project Highlights
+
+### 1. Predictive Parking Wait-Time Estimation
+
+- Developed a predictive Flask microservice exposing REST API endpoints that uses Linear Regression to estimate parking wait times.
+- Achieved a Mean Absolute Error (MAE) of **4.2 minutes** on the test set.
+- Integrated the prediction service to provide estimated waiting times when parking slots are occupied.
+
+### 2. Real-Time Parking Management
+
+- Integrated Appwrite cloud backend services, including database collections and live status updates, for parking availability management.
+- Implemented live status toggling and booking management across **20+ simulated parking slots**.
+- Connected the Appwrite backend with a React Native (Expo) client for real-time data consumption.
+
+### 3. Administrative Dashboard
+
+- Built an admin panel for real-time parking slot status control.
+- Implemented booking oversight and parking management functionality.
+- Enabled administrators to manage parking slots and events.
 
 ## Demo
 
@@ -121,8 +143,8 @@ To connect the Flask server locally:
 
 1. Visit the repository linked above.
 2. Follow the setup instructions provided in that repository.
-3. Start the Flask prediction server.
-4. Ensure that port `5000` is open on your system to allow local communication.
+3. Start the Flask server.
+4. Ensure that port `5000` is open on your system to connect locally.
 
 ### API Endpoints
 
