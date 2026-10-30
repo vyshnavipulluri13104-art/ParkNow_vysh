@@ -1,6 +1,7 @@
-# 🚗 ParkPulse – Smart Parking Prediction App
+# ParkNow – Smart Parking Prediction System
 
-## 📖 Table of Contents
+## Table of Contents
+
 - [Overview](#overview)
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
@@ -10,76 +11,89 @@
 - [Flask Prediction Server](#flask-prediction-server)
 - [Future Improvements](#future-improvements)
 
-## 🌟 Overview
-ParkPulse is a **real-time smart parking solution**. It provides:
-- **Live parking availability**
-- **Wait-time predictions** using ML
-- **Future planning** for parking slots (Cars, Bikes, Physically Abled)
+## Overview
 
-Designed for both **users** and **admins**, ParkPulse simplifies parking during peak hours and events.
+ParkNow is a real-time smart parking solution designed to simplify parking management and improve the parking experience. It provides:
 
-## 🎯 Key Features
+- Live parking availability updates.
+- Machine learning-based waiting-time predictions.
+- Future parking availability planning for cars, bikes, and physically abled users.
+
+Designed for both users and administrators, ParkNow helps streamline parking decisions, particularly during peak hours and events.
+
+## Key Features
 
 | Feature | Description |
-|---------|-------------|
-| 🔐 OTP Login | Secure authentication for users |
-| 📍 Live Tracking | Real-time vacancy updates for 3 slot types |
-| ⏱️ Wait Predictions | ML-powered estimates when slots are full |
-| 📅 Trip Planner | Check future availability probabilities |
-| 📊 Admin Panel | Manage slots, events, and view analytics |
+|---|---|
+| OTP Login | Secure authentication for users. |
+| Live Tracking | Real-time vacancy updates across three parking slot categories. |
+| Wait-Time Predictions | Machine learning-powered waiting-time estimates when parking slots are full. |
+| Trip Planner | Check future parking availability probabilities. |
+| Admin Panel | Manage parking slots, events, and view analytics. |
 
-## 🛠️ Tech Stack
-- **Frontend**: React Native + Expo
-- **Backend**: Appwrite Cloud DB
-- **ML Server**: Flask (Python)
-- **Styling**: Tailwind CSS (Nativewind)
+## Tech Stack
 
-## 📹 Demo
-Watch the [Demo Video](https://drive.google.com/file/d/1TblDwl9gicRjzqaBoa8vXxgzsFtwGBh7/view?usp=sharing)
+- **Frontend:** React Native with Expo
+- **Backend:** Appwrite Cloud Database
+- **Machine Learning Server:** Flask (Python)
+- **Styling:** Tailwind CSS (NativeWind)
 
-## 🗃️ Appwrite Setup
+## Demo
+
+Watch the [ParkNow Demo Video](https://drive.google.com/file/d/1TblDwl9gicRjzqaBoa8vXxgzsFtwGBh7/view?usp=sharing).
+
+## Appwrite Setup
 
 ### Collections Structure
 
-#### 1. `parking` Collection 
+#### 1. `parking` Collection
+
 **Attributes:**
+
 | Key | Type | Required |
-|-----|------|----------|
+|---|---|---|
 | Slotid | String | Yes |
 | Vacancy | Boolean | Yes |
 | check_in | String | No |
 | check_out | String | No |
 | slot_type | Enum | Yes |
 
-#### 2. `waiting` Collection 
+#### 2. `waiting` Collection
+
 **Attributes:**
+
 | Key | Type | Required |
-|-----|------|----------|
+|---|---|---|
 | slotid | String | Yes |
 | wait_time | Double | No |
 | check_in | String | Yes |
 | check_out | String | No |
 | category | Enum | Yes |
 
-#### 3. `event` Collection 
+#### 3. `event` Collection
+
 **Attributes:**
+
 | Key | Type | Required |
-|-----|------|----------|
+|---|---|---|
 | event_name | String | Yes |
 | event_type | Enum | Yes |
 | event_date | DateTime | Yes |
 
-## ⚙️ Local Setup
+## Local Setup
 
-### 1. Clone Repo & Install Dependencies
+### 1. Clone the Repository and Install Dependencies
+
 ```bash
-git clone https://github.com/Pudi-Sravan/ParkPulse.git
-cd ParkPulse
+git clone https://github.com/vyshnavipulluri13104-art/ParkNow_Vysh.git
+cd ParkNow_Vysh
 npm install
 ```
 
-### 2. Configure Environment
-Create `.env` with:
+### 2. Configure Environment Variables
+
+Create a `.env` file in the project root directory with the following configuration:
+
 ```env
 EXPO_PUBLIC_APPWRITE_PROJECT_ID=your_project_id
 EXPO_PUBLIC_APPWRITE_DATABASE_ID=
@@ -89,30 +103,39 @@ EXPO_PUBLIC_APPWRITE_EVENT_COLLECTION_ID=
 EXPO_PUBLIC_FLASK_SERVER=http://localhost:5000
 ```
 
-### 3. Start Expo
+Replace the placeholder values with your respective Appwrite project and database configuration.
+
+### 3. Start the Application
+
 ```bash
 npx expo start
 ```
 
-## 🐍 Flask Prediction Server
+## Flask Prediction Server
 
-For the ML prediction server setup, please refer to the dedicated repository:
+The machine learning prediction server is maintained in a dedicated repository:
+
 [Parking Availability Predictor](https://github.com/Pudi-Sravan/Parking_avl_predictor)
 
-To connect with the Flask server locally:
-1. Visit the repository link above
-2. Follow the setup instructions in that repo
-3. Run the Flask server
-4. Ensure port 5000 is open on your system to connect locally
+To connect the Flask server locally:
 
-### API Endpoints:
-- `POST /predict_wait` – Returns wait time estimates
-- `POST /predict_availability` – Future slot probability
+1. Visit the repository linked above.
+2. Follow the setup instructions provided in that repository.
+3. Start the Flask prediction server.
+4. Ensure that port `5000` is open on your system to allow local communication.
 
-## 🚀 Future Improvements
-- Camera-based slot detection
-- Google Maps integration
+### API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/predict_wait` | Returns estimated parking waiting times. |
+| POST | `/predict_availability` | Predicts future parking slot availability probabilities. |
+
+## Future Improvements
+
+- Camera-based parking slot detection.
+- Google Maps integration.
 
 ---
 
-**Plan. Predict. Park.** 🚀 Powered by ParkPulse!
+**ParkNow — Plan. Predict. Park.**
